@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAS Workshop @ NeurIPS 2026</title>
+  <meta name="title" content="Personal Agent Systems Workshop @ NeurIPS 2026">
+  <meta name="description"
+    content="Foundations, infrastructure, and personalization for trustworthy personal AI agents.">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pas-workshop.github.io">
+  <meta property="og:title" content="Personal Agent Systems Workshop @ NeurIPS 2026">
+  <meta property="og:description"
+    content="Foundations, infrastructure, and personalization for trustworthy personal AI agents.">
+  <meta property="og:image" content="https://pas-workshop.github.io/images/thumbnail.png?v=2">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://pas-workshop.github.io">
+  <meta name="twitter:title" content="Personal Agent Systems Workshop @ NeurIPS 2026">
+  <meta name="twitter:description"
+    content="Foundations, infrastructure, and personalization for trustworthy personal AI agents.">
+  <meta name="twitter:image" content="https://pas-workshop.github.io/images/thumbnail.png?v=2">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://pas-workshop.github.io">
+  <script>
+    (function () {
+      const key = 'pas-theme';
+      const choice = ['light', 'dark', 'system'].includes(localStorage.getItem(key))
+        ? localStorage.getItem(key)
+        : 'system';
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = choice === 'system' ? (prefersDark ? 'dark' : 'light') : choice;
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.dataset.themeChoice = choice;
+      document.documentElement.style.colorScheme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles/css/reset.css">
+  <link rel="stylesheet" href="styles/css/main.css">
+  <link rel="stylesheet" href="styles/css/animations.css">
+  <link rel="stylesheet" href="styles/css/responsive.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="public/favicon.png">
+  <style>
+    @media (max-width: 991px) {
+      #navbar {
+        display: none !important;
+      }
+    }
+
+    #header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+
+    /* Sponsor links hover ring and image radius */
+    .sponsors-logos a {
+      border-radius: 12px;
+      padding: 6px;
+      display: inline-flex;
+      align-items: center;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .sponsors-logos a:hover,
+    .sponsors-logos a:focus-visible {
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    .sponsors-logos a img {
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* Schedule cards hover effects */
+    .schedule-card {
+      transition: all var(--transition-fast);
+    }
+
+    .schedule-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex header sticky-top">
+    <div class="navbar-container">
+      <div class="navbar-title-group"
+        style="display: flex; width: 100%; flex-direction: row; align-items: center; justify-content: flex-start; gap: 1rem;">
+        <a href="https://neurips.cc/" target="_blank" class="navbar-logo">
+          <img src="images/neurips.svg" alt="NeurIPS_LOGO" style="width: 100%; height: 64px;">
+        </a>
+        <a href="#home" class="navbar-title"
+          style="font-size: 1.5rem;color: var(--color-primary); font-weight: bold; font-family: 'Palatino', 'Palatino Linotype', serif; font-size: 1.5rem; display: flex; align-items: center; justify-content: flex-start; width: auto; gap: 1rem;">PAS
+          Workshop 2026</a>
+      </div>
+      <nav id="navbar" class="navbar" style="display: flex; justify-content: flex-end;">
+        <a class="nav-link scrollto" href="#topics">Topics</a>
+        <a class="nav-link scrollto" href="#call-for-papers">Call for Papers</a>
+        <a class="nav-link scrollto" href="#speakers">Speakers</a>
+        <a class="nav-link scrollto" href="#schedule">Schedule</a>
+        <a class="nav-link scrollto" href="#organizers">Organizers</a>
+        <a class="nav-link scrollto" href="#committee">Program Committee</a>
+        <a class="nav-link scrollto" href="#support-team">Contact</a>
+      </nav>
+      <div class="theme-switcher" role="group" aria-label="Theme">
+        <button class="theme-option" type="button" data-theme-option="light" aria-pressed="false" title="Light theme">
+          <i class="bi bi-sun" aria-hidden="true"></i>
+          <span>Light</span>
+        </button>
+        <button class="theme-option" type="button" data-theme-option="dark" aria-pressed="false" title="Dark theme">
+          <i class="bi bi-moon-stars" aria-hidden="true"></i>
+          <span>Dark</span>
+        </button>
+        <button class="theme-option" type="button" data-theme-option="system" aria-pressed="false" title="Follow browser theme">
+          <i class="bi bi-laptop" aria-hidden="true"></i>
+          <span>System</span>
+        </button>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero fade-in" style="position:relative;overflow:hidden;">
+      <canvas id="waveCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;"></canvas>
+      <div class="container" style="position:relative;z-index:1;">
+        <span class="display-text-palatino">Personal Agent Systems (PAS)</span>
+      </div>
+      <br>
+      <div class="container" style="position:relative;z-index:1;">
+        <h3 class="hero-pill">
+          NeurIPS 2026 Workshop</h3>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+      <div class="about">
+        <p>Personal agent systems are AI systems that understand individual users, maintain long-term context, coordinate tools and services, and adapt their behavior to personal goals, preferences, and constraints. As foundation models become more capable agents, the central challenge is shifting from isolated task solvers to persistent, trustworthy, and useful assistants that can operate across devices, applications, modalities, and real-world routines.</p>
+        <p>The PAS workshop brings together researchers working on the foundations, infrastructure, benchmarks, and personalization methods required for personal agents. We emphasize reliable reasoning, human-agent interaction, privacy-preserving memory, scalable deployment, and responsible adaptation over time.</p>
+      </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Topics of Interest</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <div class="bento-section">
+          <div class="bento-list">
+            <div class="bento-topic" data-img="topic1.png">
+              <span class="bento-num">1</span>
+              <div class="bento-topic-content">
+                <span class="bento-title">Foundations of Personal Agent Systems</span>
+                <span class="bento-desc">User modeling, intent understanding, preference learning, long-term memory, and reasoning or planning across language, vision, web, mobile, and embodied contexts.</span>
+              </div>
+            </div>
+            <div class="bento-topic" data-img="topic2.png">
+              <span class="bento-num">2</span>
+              <div class="bento-topic-content">
+                <span class="bento-title">Infrastructure for Personal Agents</span>
+                <span class="bento-desc">Memory stores, retrieval, tool use, workflow orchestration, agent operating environments, provenance, rollback, interoperability, and privacy controls.</span>
+              </div>
+            </div>
+            <div class="bento-topic" data-img="topic3.png">
+              <span class="bento-num">3</span>
+              <div class="bento-topic-content">
+                <span class="bento-title">Personalization and Human-Agent Interaction</span>
+                <span class="bento-desc">Adaptive interfaces, controllable proactive assistance, continual personalization, and user-centered applications in web, GUI, mobile, robotics, accessibility, education, healthcare, and creative workflows.</span>
+              </div>
+            </div>
+            <div class="bento-topic" data-img="topic4.png">
+              <span class="bento-num">4</span>
+              <div class="bento-topic-content">
+                <span class="bento-title">Benchmarking, Evaluation, and Datasets</span>
+                <span class="bento-desc">Benchmarks, datasets, simulators, toolkits, and metrics for long-horizon, user-centered, tool-using agents, including task success, personalization quality, reliability, privacy, and trust.</span>
+              </div>
+            </div>
+            <div class="bento-topic" data-img="topic5.png">
+              <span class="bento-num">5</span>
+              <div class="bento-topic-content">
+                <span class="bento-title">Ethics, Interpretability, and Reliability</span>
+                <span class="bento-desc">Safe action execution, consent, oversight, rollback, explainability, auditability, accountability, user ownership, fairness, bias mitigation, and misuse prevention.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call for Papers Section -->
+    <section id="call-for-papers" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Call for Papers</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+
+        <h3 id="submission-tracks">Submission Tracks</h3>
+        <p>We invite submissions on the foundations, infrastructure, personalization, evaluation, and responsible deployment of personal agent systems. We welcome original research, position papers, benchmark and dataset papers, system demonstrations, and work-in-progress that can help define the next generation of trustworthy personal AI agents.</p>
+        <br>
+
+        <h3 id="submission-guidelines">Submission Guidelines</h3>
+        <p>The workshop will use a double-blind review process. Submissions should be anonymized and will receive 3-4 reviews, including ethical review where appropriate. Detailed formatting instructions and the OpenReview submission link will be posted after workshop acceptance.</p>
+        <p>Accepted papers, posters, talk titles, and the final program will be made available online through the workshop website to support broad access to workshop materials.</p>
+        <br>
+
+        <h3 id="important-dates">Tentative Important Dates</h3>
+        <table class="important-dates">
+          <tr class="important-date-row">
+            <td><time datetime="2026-08-29"><strong>Aug 29, 2026 (AoE)</strong>&nbsp;</time></td>
+            <td>Workshop contribution submission deadline</td>
+          </tr>
+          <tr class="important-date-row">
+            <td><time datetime="2026-08-30"><strong>Aug 30-Sep 2, 2026</strong>&nbsp;</time></td>
+            <td>Reviewer bidding and assignment</td>
+          </tr>
+          <tr class="important-date-row">
+            <td><time datetime="2026-09-03"><strong>Sep 3-18, 2026</strong>&nbsp;</time></td>
+            <td>Review period</td>
+          </tr>
+          <tr class="important-date-row">
+            <td><time datetime="2026-09-19"><strong>Sep 19-23, 2026</strong>&nbsp;</time></td>
+            <td>Discussion and decisions</td>
+          </tr>
+          <tr class="important-date-row">
+            <td><time datetime="2026-09-24"><strong>Sep 24, 2026 (AoE)</strong>&nbsp;</time></td>
+            <td>Workshop paper notification</td>
+          </tr>
+          <tr class="important-date-row">
+            <td><time datetime="2026-10-10"><strong>Oct 10, 2026 (AoE)</strong>&nbsp;</time></td>
+            <td>Camera-ready and presentation material deadline</td>
+          </tr>
+          <tr class="important-date-row">
+            <td><time datetime="2026-10-20"><strong>Oct 20, 2026</strong>&nbsp;</time></td>
+            <td>Final workshop program posted online</td>
+          </tr>
+          <tr class="important-date-row">
+            <td><time datetime="2026-12-11"><strong>Dec 2026</strong>&nbsp;</time></td>
+            <td>Workshop date, subject to NeurIPS scheduling</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- Speakers & Panel Section -->
+    <section id="speakers" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Invited Speakers</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <div class="speakers-title" style="margin-top:2rem; margin-bottom:1rem;">
+          <h3>Confirmed Speakers</h3>
+        </div>
+        <div class="organizers-grid">
+          <a href="https://jindonggu.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+            <div class="organizer-role">Confirmed</div>
+            <div class="initial-avatar">JG</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Jindong Gu</div>
+              <div class="organizer-org">Google DeepMind & University of Oxford</div>
+            </div>
+          </a>
+
+          <a href="https://ikekonglp.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+            <div class="organizer-role">Confirmed</div>
+            <div class="initial-avatar">LK</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Lingpeng Kong</div>
+              <div class="organizer-org">The University of Hong Kong</div>
+            </div>
+          </a>
+
+          <a href="https://yumeng5.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+            <div class="organizer-role">Confirmed</div>
+            <div class="initial-avatar">YM</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Yu Meng</div>
+              <div class="organizer-org">University of Virginia</div>
+            </div>
+          </a>
+
+          <a href="https://www.shuyanzhou.com/" target="_blank" class="organizer-card" style="position: relative;">
+            <div class="organizer-role">Confirmed</div>
+            <img src="./public/shuyan-zhou.png" alt="Shuyan Zhou" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Shuyan Zhou</div>
+              <div class="organizer-org">Meta Superintelligence Labs & Duke University</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Schedule</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <p>The workshop is planned as a one-day, in-person NeurIPS 2026 event spanning 8.5 hours. The program is designed to move beyond a talks-only format by combining invited talks, contributed oral sessions, posters, demos, structured discussion, and a panel.</p>
+        <div class="schedule-table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Session</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>09:00-09:10</td><td>10 min</td><td>Opening remarks and workshop goals</td></tr>
+              <tr><td>09:10-09:40</td><td>30 min</td><td>Invited talk 1: Foundations of personal agents</td></tr>
+              <tr><td>09:40-10:10</td><td>30 min</td><td>Invited talk 2: Safe and trustworthy agent systems</td></tr>
+              <tr><td>10:10-10:30</td><td>20 min</td><td>Coffee break</td></tr>
+              <tr><td>10:30-11:20</td><td>50 min</td><td>Contributed oral session 1</td></tr>
+              <tr><td>11:20-12:00</td><td>40 min</td><td>Structured discussion: What should personal agents remember?</td></tr>
+              <tr><td>12:00-13:00</td><td>60 min</td><td>Lunch break</td></tr>
+              <tr><td>13:00-13:30</td><td>30 min</td><td>Invited talk 3: Personalization and human-agent interaction</td></tr>
+              <tr><td>13:30-14:20</td><td>50 min</td><td>Poster session 1 and demos</td></tr>
+              <tr><td>14:20-15:10</td><td>50 min</td><td>Contributed oral session 2</td></tr>
+              <tr><td>15:10-15:30</td><td>20 min</td><td>Coffee break</td></tr>
+              <tr><td>15:30-16:00</td><td>30 min</td><td>Invited talk 4: Infrastructure for deployable agents</td></tr>
+              <tr><td>16:00-16:45</td><td>45 min</td><td>Panel and audience debate: Personal agents in the real world</td></tr>
+              <tr><td>16:45-17:20</td><td>35 min</td><td>Poster session 2 and breakout reports</td></tr>
+              <tr><td>17:20-17:30</td><td>10 min</td><td>Awards and closing remarks</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top: 1.5rem;"><a href="schedule.html"><strong>View the standalone schedule page</strong></a></p>
+      </div>
+    </section>
+
+    <!-- Submission Outcomes Section -->
+    <section id="accepted-papers" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Submission Outcomes</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <div class="notice-panel">
+          <h3>Accepted papers will be announced after review.</h3>
+          <p>We expect to receive 60-80 submissions and will recruit a broad program committee so that each submission receives 3-4 reviews while keeping reviewer load reasonable. Outstanding papers will be invited for oral presentations, lightning talks, posters, and demos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section id="organizers" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Organizers</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <div class="organizers-grid">
+          <a href="https://wenhuchen.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/wenhu-chen.jpg" alt="Wenhu Chen" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Wenhu Chen</div>
+              <div class="organizer-org">Meta Superintelligence Labs</div>
+            </div>
+          </a>
+
+          <a href="https://luoping.me/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/ping-luo.jpg" alt="Ping Luo" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Ping Luo</div>
+              <div class="organizer-org">The University of Hong Kong</div>
+            </div>
+          </a>
+
+          <a href="https://killthefullmoon.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/hui-shen.png" alt="Hui Shen" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Hui Shen</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </a>
+
+          <a href="https://chaofantao.top/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/chaofan-tao.png" alt="Chaofan Tao" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Chaofan Tao</div>
+              <div class="organizer-org">University of Hong Kong</div>
+            </div>
+          </a>
+
+          <a href="https://wutaiqiang.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/taiqiang-wu.jpg" alt="Taiqiang Wu" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Taiqiang Wu</div>
+              <div class="organizer-org">The University of Hong Kong</div>
+            </div>
+          </a>
+
+          <a href="https://menik1126.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/jing-xiong.png" alt="Jing Xiong" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Jing Xiong</div>
+              <div class="organizer-org">The University of Hong Kong</div>
+            </div>
+          </a>
+
+          <a href="https://drogozhang.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/kai-zhang.jpg" alt="Kai Zhang" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Kai Zhang</div>
+              <div class="organizer-org">The Ohio State University</div>
+            </div>
+          </a>
+
+          <a href="https://engineering.osu.edu/people/zhang.13664" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/mi-zhang.jpg" alt="Mi Zhang" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Mi Zhang</div>
+              <div class="organizer-org">The Ohio State University</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advisory Board Section -->
+    <section id="advisory-board" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Advisory Board</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <div class="organizers-grid">
+          <a href="https://gaohuang-net.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/gao-huang.jpg" alt="Gao Huang" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Gao Huang</div>
+              <div class="organizer-org">Tsinghua University</div>
+            </div>
+          </a>
+
+          <a href="https://ikekonglp.github.io/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/lingpeng-kong.jpg" alt="Lingpeng Kong" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Lingpeng Kong</div>
+              <div class="organizer-org">The University of Hong Kong</div>
+            </div>
+          </a>
+
+          <a href="https://web.eecs.umich.edu/~zmao/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/z-morley-mao.jpg" alt="Z. Morley Mao" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Z. Morley Mao</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </a>
+
+          <a href="https://engineering.osu.edu/people/sun.397" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/huan-sun.png" alt="Huan Sun" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Huan Sun</div>
+              <div class="organizer-org">The Ohio State University</div>
+            </div>
+          </a>
+
+          <a href="https://www.robots.ox.ac.uk/~phst/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/phil-torr.png" alt="Philip Torr" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Philip Torr</div>
+              <div class="organizer-org">University of Oxford</div>
+            </div>
+          </a>
+
+          <a href="https://www.eee.hku.hk/~nwong/" target="_blank" class="organizer-card" style="position: relative;">
+
+            <img src="./public/ngai-wong.jpg" alt="Ngai Wong" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Ngai Wong</div>
+              <div class="organizer-org">The University of Hong Kong</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program Committee Section -->
+    <section id="committee" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Program Committee</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <p>The program committee brings together researchers across computer vision, NLP, reinforcement learning, LLM agents, human-centered AI, systems, privacy, and trustworthy deployment.</p>
+        <div class="organizers-grid pc-grid">
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">LB</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Lingfan Bao</div>
+              <div class="organizer-org">University College London</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">HC</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Hei Ting Chan</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </div>
+
+          <a href="https://minkyoungcho.github.io/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/minkyoung-cho.jpg" alt="Minkyoung Cho" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Minkyoung Cho</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </a>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">KG</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Kunxiao Gao</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">QH</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Qi Han</div>
+              <div class="organizer-org">University of Hong Kong</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">SH</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Shuai He</div>
+              <div class="organizer-org">University of Maryland</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">YH</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Yunta Hsieh</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">TH</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Tao Hu</div>
+              <div class="organizer-org">LMU Munich</div>
+            </div>
+          </div>
+
+          <a href="https://shuoweijin.com/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/shuowei-jin.png" alt="Shuowei Jin" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Shuowei Jin</div>
+              <div class="organizer-org">Amazon</div>
+            </div>
+          </a>
+
+          <a href="https://people.epfl.ch/chengkun.li" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/chengkun-li.jpg" alt="Chengkun Li" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Chengkun Li</div>
+              <div class="organizer-org">EPFL</div>
+            </div>
+          </a>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">JL</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Jiarui Li</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </div>
+
+          <a href="https://waylonli.com/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/weixian-li.jpg" alt="Weixian Li" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Weixian Li</div>
+              <div class="organizer-org">The University of Edinburgh</div>
+            </div>
+          </a>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">XL</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Xingzhi Li</div>
+              <div class="organizer-org">Independent</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">ZL</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Ziyuan Liu</div>
+              <div class="organizer-org">Peking University</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">RL</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Ruiyao Liu</div>
+              <div class="organizer-org">Xi'an Jiaotong University</div>
+            </div>
+          </div>
+
+          <a href="https://xenshinu.github.io/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/xueshen-liu.jpg" alt="Xueshen Liu" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Xueshen Liu</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </a>
+
+          <a href="https://dusp.mit.edu/people/yifeng-liu" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/yifeng-liu.jpg" alt="Yifeng Liu" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Yifeng Liu</div>
+              <div class="organizer-org">MIT</div>
+            </div>
+          </a>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">JL</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Jiawei Lu</div>
+              <div class="organizer-org">University of Wisconsin-Madison</div>
+            </div>
+          </div>
+
+          <a href="https://yuanshengni.github.io/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/yuansheng-ni.png" alt="Yuansheng Ni" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Yuansheng Ni</div>
+              <div class="organizer-org">University of Waterloo</div>
+            </div>
+          </a>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">MS</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Manxi Sun</div>
+              <div class="organizer-org">Tencent Robotics X</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">XT</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Xijia Tao</div>
+              <div class="organizer-org">University of Hong Kong</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">ZW</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Zhongwei Wan</div>
+              <div class="organizer-org">Ohio State University</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">XW</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Xin Wang</div>
+              <div class="organizer-org">Ohio State University</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">JW</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Jizhou Wang</div>
+              <div class="organizer-org">University of Toronto</div>
+            </div>
+          </div>
+
+          <a href="https://junlingwang0512.github.io/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/junling-wang.jpg" alt="Junling Wang" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Junling Wang</div>
+              <div class="organizer-org">ETH Zurich</div>
+            </div>
+          </a>
+
+          <a href="https://cohort.inf.ed.ac.uk/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/mengyu-wang.jpg" alt="Mengyu Wang" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Mengyu Wang</div>
+              <div class="organizer-org">The University of Edinburgh</div>
+            </div>
+          </a>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">MW</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Mengyao Wen</div>
+              <div class="organizer-org">Independent</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">TW</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Tianyu Wu</div>
+              <div class="organizer-org">Harvard University</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">KX</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Kejing Xia</div>
+              <div class="organizer-org">Georgia Institute of Technology</div>
+            </div>
+          </div>
+
+          <a href="https://hsaest.github.io/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/jian-xie.png" alt="Jian Xie" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Jian Xie</div>
+              <div class="organizer-org">Ohio State University</div>
+            </div>
+          </a>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">JX</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Jing Xu</div>
+              <div class="organizer-org">USTC</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">WX</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Wendong Xu</div>
+              <div class="organizer-org">University of Hong Kong</div>
+            </div>
+          </div>
+
+          <a href="https://rattlesnakey.github.io/" target="_blank" class="organizer-card pc-card" style="position: relative;">
+            <img src="./public/hengyuan-zhang.jpg" alt="Hengyuan Zhang" class="organizer-photo">
+            <div class="organizer-info">
+              <div class="organizer-name">Hengyuan Zhang</div>
+              <div class="organizer-org">University of Hong Kong</div>
+            </div>
+          </a>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">JZ</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Jingxuan Zhang</div>
+              <div class="organizer-org">Indiana University</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">YZ</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Yu Zhang</div>
+              <div class="organizer-org">Tongji University</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">ZZ</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Ziheng Zhang</div>
+              <div class="organizer-org">Ohio State University</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">ZZ</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Zesen Zhao</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">BZ</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Boyuan Zheng</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </div>
+
+          <div class="organizer-card pc-card" style="position: relative;">
+            <div class="initial-avatar">RZ</div>
+            <div class="organizer-info">
+              <div class="organizer-name">Ruiyang Zhu</div>
+              <div class="organizer-org">University of Michigan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Team Section -->
+    <section id="support-team" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Contact</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <div class="section-content">
+          <p>Accepted papers, posters, talk titles, and the final workshop program will be posted here. Contact details and OpenReview links will be added after workshop acceptance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="fade-in">
+      <div class="container">
+        <div class="section-header-component">
+          <div class="section-header-row">
+            <span class="section-header-title">Community Support</span>
+            <span class="section-header-subtitle">Personal Agent Systems</span>
+          </div>
+        </div>
+        <div class="notice-panel">
+          <h3>Inclusive participation</h3>
+          <p>We aim to create an inclusive NeurIPS workshop environment for participants from diverse backgrounds. We will seek sponsorships for workshop fees and travel support, especially for researchers from underrepresented and under-resourced communities.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <blockquote class="contact-blockquote">
+        Foundations, infrastructure, and personalization for trustworthy personal AI agents.
+      </blockquote>
+      <p class="footer-text">&copy; PAS @ NeurIPS 2026. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="styles/js/main.js"></script>
+</body>
+
+</html>

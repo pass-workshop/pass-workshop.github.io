@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule - PAS Workshop @ NeurIPS 2026</title>
+  <meta name="title" content="Schedule - PAS Workshop @ NeurIPS 2026">
+  <meta name="description"
+    content="Tentative schedule for the Personal Agent Systems (PAS) Workshop at NeurIPS 2026">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pas-workshop.github.io/schedule.html">
+  <meta property="og:title" content="Schedule - PAS Workshop @ NeurIPS 2026">
+  <meta property="og:description"
+    content="Tentative schedule for the Personal Agent Systems (PAS) Workshop at NeurIPS 2026">
+  <meta property="og:image" content="https://pas-workshop.github.io/images/thumbnail.png?v=2">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://pas-workshop.github.io/schedule.html">
+  <meta name="twitter:title" content="Schedule - PAS Workshop @ NeurIPS 2026">
+  <meta name="twitter:description"
+    content="Tentative schedule for the Personal Agent Systems (PAS) Workshop at NeurIPS 2026">
+  <meta name="twitter:image" content="https://pas-workshop.github.io/images/thumbnail.png?v=2">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://pas-workshop.github.io/schedule.html">
+  <script>
+    (function () {
+      const key = 'pas-theme';
+      const choice = ['light', 'dark', 'system'].includes(localStorage.getItem(key))
+        ? localStorage.getItem(key)
+        : 'system';
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = choice === 'system' ? (prefersDark ? 'dark' : 'light') : choice;
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.dataset.themeChoice = choice;
+      document.documentElement.style.colorScheme = theme;
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="public/favicon.png">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f5f5f7;
+      --surface: #ffffff;
+      --surface-muted: #f5f5f7;
+      --surface-tint: #f0f0f2;
+      --border: #d2d2d7;
+      --text: #1d1d1f;
+      --text-muted: #6e6e73;
+      --text-subtle: #86868b;
+      --accent: #6b4f3f;
+      --accent-hover: #4f392d;
+      --accent-contrast: #ffffff;
+      --button: #6b4f3f;
+      --button-hover: #4f392d;
+      --focus-ring: rgba(107, 79, 63, 0.22);
+      --shadow-sm: 0 1px 2px rgba(29, 29, 31, 0.05);
+      --shadow-md: 0 8px 24px rgba(29, 29, 31, 0.07);
+      --category-neutral: #7a6558;
+      --category-invited: #6b4f3f;
+      --category-poster: #927463;
+      --category-lightning: #826a5b;
+      --category-neutral-bg: #f5f5f7;
+      --category-invited-bg: #eeeeef;
+      --category-poster-bg: #f0f0f2;
+      --category-lightning-bg: #f7f7f8;
+      --neon-700: var(--accent);
+      --neon-400: #927463;
+      --gray-400: var(--border);
+      --gray-600: var(--text-muted);
+      --white: var(--surface);
+      --bg-light: var(--background);
+      --color-blue: var(--category-neutral);
+      --color-purple: var(--category-invited);
+      --color-orange: var(--category-poster);
+      --color-green: var(--category-lightning);
+      --color-blue-light: var(--category-neutral-bg);
+      --color-purple-light: var(--category-invited-bg);
+      --color-orange-light: var(--category-poster-bg);
+      --color-green-light: var(--category-lightning-bg);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --background: #000000;
+      --surface: #1d1d1f;
+      --surface-muted: #2c2c2e;
+      --surface-tint: #242426;
+      --border: #3a3a3c;
+      --text: #f5f5f7;
+      --text-muted: #a1a1a6;
+      --text-subtle: #86868b;
+      --accent: #d2b49c;
+      --accent-hover: #e4c8b1;
+      --accent-contrast: #241913;
+      --button: #d2b49c;
+      --button-hover: #e4c8b1;
+      --focus-ring: rgba(210, 180, 156, 0.30);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.30);
+      --category-neutral: #b9967d;
+      --category-invited: #d2b49c;
+      --category-poster: #c7a58a;
+      --category-lightning: #ad8d77;
+      --category-neutral-bg: #161617;
+      --category-invited-bg: #1d1d1f;
+      --category-poster-bg: #242426;
+      --category-lightning-bg: #202022;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 8px;
+    }
+
+    /* Header Styles */
+    .header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      padding: 24px 20px;
+      margin-bottom: 24px;
+    }
+
+    .header-title {
+      font-family: 'Palatino', 'Palatino Linotype', serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-family: 'Palatino', 'Palatino Linotype', serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      align-items: center;
+    }
+
+    .header-meta-item {
+      white-space: nowrap;
+    }
+
+    .header-meta-divider {
+      color: var(--text-subtle);
+    }
+
+    .theme-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 3px;
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-muted);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .theme-option {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0.3rem 0.7rem;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+      transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .theme-option:hover {
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .theme-option:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    .theme-option[aria-pressed="true"] {
+      color: var(--accent-contrast);
+      background: var(--button);
+    }
+
+    /* Section Styles */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-family: 'Palatino', 'Palatino Linotype', serif;
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--text);
+      margin-bottom: 8px;
+      padding: 8px 0;
+    }
+
+    /* Schedule List */
+    .schedule-list {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .schedule-item {
+      display: flex;
+      border-top: 1px solid var(--border);
+    }
+
+    .schedule-item:first-child {
+      border-top: none;
+    }
+
+    .schedule-item:last-child {
+      border-bottom: none;
+    }
+
+    .schedule-number {
+      width: 60px;
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-left: 2px solid var(--neon-400);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    /* Opening, breaks, closing - blue */
+    .schedule-item-opening,
+    .schedule-item-break,
+    .schedule-item-closing {
+      background-color: var(--color-blue-light);
+    }
+
+    .schedule-item-opening .schedule-number,
+    .schedule-item-break .schedule-number,
+    .schedule-item-closing .schedule-number {
+      border-left-color: var(--color-blue);
+    }
+
+    .schedule-item-opening .schedule-number-text,
+    .schedule-item-break .schedule-number-text,
+    .schedule-item-closing .schedule-number-text {
+      color: var(--color-blue);
+    }
+
+    /* Invited talks, panel - purple */
+    .schedule-item-invited,
+    .schedule-item-panel {
+      background-color: var(--color-purple-light);
+    }
+
+    .schedule-item-invited .schedule-number,
+    .schedule-item-panel .schedule-number {
+      border-left-color: var(--color-purple);
+    }
+
+    .schedule-item-invited .schedule-number-text,
+    .schedule-item-panel .schedule-number-text {
+      color: var(--color-purple);
+    }
+
+    /* Poster sessions */
+    .schedule-item-poster {
+      background-color: var(--color-orange-light);
+    }
+
+    .schedule-item-poster .schedule-number {
+      border-left-color: var(--color-orange);
+    }
+
+    .schedule-item-poster .schedule-number-text {
+      color: var(--color-orange);
+    }
+
+    /* Lightning oral - green */
+    .schedule-item-lightning {
+      background-color: var(--color-green-light);
+    }
+
+    .schedule-item-lightning .schedule-number {
+      border-left-color: var(--color-green);
+    }
+
+    .schedule-item-lightning .schedule-number-text {
+      color: var(--color-green);
+    }
+
+    .schedule-number-text {
+      font-family: 'Palatino', 'Palatino Linotype', serif;
+      font-size: 24px;
+      color: var(--neon-400);
+      line-height: 1.2;
+    }
+
+    .schedule-content {
+      flex: 1;
+      padding: 8px 16px 8px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .schedule-time {
+      width: 140px;
+      flex-shrink: 0;
+      padding: 8px 16px 8px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .schedule-time-text {
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gray-600);
+      line-height: 1.4;
+      text-align: right;
+    }
+
+    .schedule-time-subtitle {
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-subtle);
+      line-height: 1.4;
+      text-align: right;
+      margin-top: 2px;
+    }
+
+    .schedule-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.4;
+    }
+
+    .schedule-meta {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .schedule-meta-icon {
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+    }
+
+    .schedule-meta-text {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-600);
+      line-height: 1.4;
+    }
+
+    /* Icon Styles - Clock */
+    .icon-clock {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-clock svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Icon Styles - User */
+    .icon-user {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-user svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Back Link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 20px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent-hover);
+    }
+
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 16px;
+      }
+
+      .header {
+        padding: 20px 16px;
+      }
+
+      .header-title {
+        font-size: 28px;
+      }
+
+      .schedule-number {
+        width: 50px;
+        padding: 8px 12px;
+      }
+
+      .schedule-number-text {
+        font-size: 20px;
+      }
+
+      .schedule-content {
+        padding: 8px 12px 8px 0;
+      }
+
+      .schedule-title {
+        font-size: 18px;
+      }
+
+      .schedule-time {
+        width: 120px;
+        padding: 8px 12px 8px 0;
+      }
+
+      .schedule-time-text {
+        font-size: 14px;
+      }
+
+      .schedule-time-subtitle {
+        font-size: 11px;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="header">
+      <h1 class="header-title">Personal Agent Systems (PAS)</h1>
+      <div class="header-meta">
+        <span class="header-meta-item">NeurIPS 2026 Workshop</span>
+        <span class="header-meta-divider">|</span>
+        <span class="header-meta-item">Atlanta, Sydney, or Paris</span>
+        <span class="header-meta-divider">|</span>
+        <span class="header-meta-item">Dec 2026, subject to NeurIPS scheduling</span>
+      </div>
+      <div class="theme-switcher" role="group" aria-label="Theme">
+        <button class="theme-option" type="button" data-theme-option="light" aria-pressed="false">Light</button>
+        <button class="theme-option" type="button" data-theme-option="dark" aria-pressed="false">Dark</button>
+        <button class="theme-option" type="button" data-theme-option="system" aria-pressed="false">System</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Morning Section</h2>
+      <div class="schedule-list">
+        <div class="schedule-item schedule-item-opening">
+          <div class="schedule-number">
+            <span class="schedule-number-text">1</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Opening remarks and workshop goals</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Lead Organizers</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">09:00 - 09:10</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-invited">
+          <div class="schedule-number">
+            <span class="schedule-number-text">2</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Invited Talk 1 - Foundations of personal agents</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Confirmed Speaker</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">09:10 - 09:40</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-invited">
+          <div class="schedule-number">
+            <span class="schedule-number-text">3</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Invited Talk 2 - Safe and trustworthy agent systems</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Confirmed Speaker</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">09:40 - 10:10</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-break">
+          <div class="schedule-number">
+            <span class="schedule-number-text">4</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Coffee Break</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">All Participants</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">10:10 - 10:30</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-lightning">
+          <div class="schedule-number">
+            <span class="schedule-number-text">5</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Contributed Oral Session 1</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Selected Paper Authors</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">10:30 - 11:20</span>
+            <span class="schedule-time-subtitle">(50 min)</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-panel">
+          <div class="schedule-number">
+            <span class="schedule-number-text">6</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Structured Discussion - What should personal agents remember?</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">All Participants</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">11:20 - 12:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Afternoon Section</h2>
+      <div class="schedule-list">
+        <div class="schedule-item schedule-item-break">
+          <div class="schedule-number">
+            <span class="schedule-number-text">7</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Lunch Break</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">All Participants</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">12:00 - 13:00</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-invited">
+          <div class="schedule-number">
+            <span class="schedule-number-text">8</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Invited Talk 3 - Personalization and human-agent interaction</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Confirmed Speaker</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">13:00 - 13:30</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-poster">
+          <div class="schedule-number">
+            <span class="schedule-number-text">9</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Poster Session 1 and Demos</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Accepted Paper Authors</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">13:30 - 14:20</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-lightning">
+          <div class="schedule-number">
+            <span class="schedule-number-text">10</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Contributed Oral Session 2</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Selected Paper Authors</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">14:20 - 15:10</span>
+            <span class="schedule-time-subtitle">(50 min)</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-break">
+          <div class="schedule-number">
+            <span class="schedule-number-text">11</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Coffee Break</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">All Participants</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">15:10 - 15:30</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-invited">
+          <div class="schedule-number">
+            <span class="schedule-number-text">12</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Invited Talk 4 - Infrastructure for deployable agents</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Confirmed Speaker</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">15:30 - 16:00</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-panel">
+          <div class="schedule-number">
+            <span class="schedule-number-text">13</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Panel and Audience Debate - Personal agents in the real world</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Guest Panelists</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">16:00 - 16:45</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-poster">
+          <div class="schedule-number">
+            <span class="schedule-number-text">14</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Poster Session 2 and Breakout Reports</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Accepted Paper Authors</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">16:45 - 17:20</span>
+          </div>
+        </div>
+
+        <div class="schedule-item schedule-item-closing">
+          <div class="schedule-number">
+            <span class="schedule-number-text">15</span>
+          </div>
+          <div class="schedule-content">
+            <div class="schedule-title">Awards and closing remarks</div>
+            <div class="schedule-meta">
+              <span class="schedule-meta-text">Lead Organizers</span>
+            </div>
+          </div>
+          <div class="schedule-time">
+            <span class="schedule-time-text">17:20 - 17:30</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>PAS Workshop @ NeurIPS 2026 | <a href="index.html">View the Main Site</a></p>
+    </div>
+  </div>
+  <script src="styles/js/main.js"></script>
+</body>
+
+</html>

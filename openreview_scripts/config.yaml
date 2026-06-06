@@ -1,0 +1,9 @@
+# OpenReview credentials
+openreview_credentials:
+  username: ...
+  password: ...
+
+# List of author groups to extract IDs from
+author_groups:
+  - NeurIPS.cc/2025/Workshop/SEA/Submission1/Authors
+  - NeurIPS.cc/2025/Workshop/SEA/Submission3/Authors

@@ -210,7 +210,7 @@ h3 {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
   margin-bottom: var(--space-3);
-  color: var(--color-neutral-900);
+  color: var(--color-primary);
 }
 
 h4 {
@@ -313,7 +313,12 @@ section {
 
 /* Hero Section */
 .hero {
+  box-sizing: border-box;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
   padding-top: calc(var(--space-9) + 72px); /* Extra padding for fixed header */
+  padding-bottom: clamp(5rem, 9vh, 8rem);
   background: var(--hero-background);
   border-bottom: 1px solid var(--border);
 }
@@ -324,7 +329,9 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center !important;
-  padding: 16px;
+  min-height: calc(100svh - 220px);
+  padding: clamp(2rem, 5vh, 4.5rem) 16px;
+  transform: translateY(clamp(-8.5rem, -11vh, -4.5rem));
 }
 
 .hero .container.hero-badge-container {
@@ -463,6 +470,16 @@ html[data-theme="dark"] .hero-workshop-badge {
 .about p + p,
 .container > p + p {
   margin-top: 0.75rem;
+}
+
+.about > p::first-letter {
+  float: none;
+  margin: 0 0.02em 0 0;
+  font-family: 'Palatino', 'Palatino Linotype', serif;
+  font-size: 1.42em;
+  line-height: 0;
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 .about-content {
@@ -1233,7 +1250,7 @@ html[data-theme="dark"] .schedule-rail span {
   width: auto;
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-neutral-900);
+  color: var(--color-primary);
 }
 .section-header-subtitle {
   width: auto;
@@ -1413,18 +1430,18 @@ html[data-theme="dark"] .schedule-rail span {
   color: var(--text);
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: clamp(0.55rem, 1.2vh, 0.9rem);
   text-align: center;
-  margin: 2rem 0 1rem 0;
+  margin: 0 0 clamp(1.2rem, 2.8vh, 2rem) 0;
   line-height: 1.08;
 }
 
 .display-text-palatino span:first-child {
-  font-size: clamp(2.45rem, 6vw, 4.75rem);
+  font-size: clamp(2.7rem, 6.4vw, 5.25rem);
 }
 
 .display-text-palatino span:last-child {
-  font-size: clamp(1.35rem, 3.15vw, 2.65rem);
+  font-size: clamp(1.45rem, 3.35vw, 2.85rem);
   font-weight: 700;
 }
 
@@ -1433,7 +1450,7 @@ html[data-theme="dark"] .display-text-palatino {
 }
 
 .hero-workshop-text {
-  margin-top: 0.9rem;
+  margin-top: clamp(1.1rem, 2.4vh, 1.8rem);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(1.08rem, 2vw, 1.55rem);
@@ -1521,12 +1538,12 @@ html[data-theme="dark"] .hero-workshop-text {
 
 .contact-blockquote {
   text-align: center;
-  margin: 1.5rem auto 3rem auto;
-  font-size: 1.6rem;
-  line-height: 1.6;
+  margin: 1.25rem auto 1.8rem auto;
+  font-size: clamp(0.95rem, 1.45vw, 1.15rem);
+  line-height: 1.5;
   font-family: 'Palatino', 'Palatino Linotype', serif;
-  font-weight: bold;
-  color: var(--footer-text);
+  font-weight: 400;
+  color: color-mix(in srgb, var(--footer-muted) 78%, var(--footer-background));
 }
 
 .contact-list {
@@ -1765,6 +1782,30 @@ html[data-theme="dark"] .hero-workshop-text {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    padding-top: 96px;
+    padding-bottom: 5.5rem;
+  }
+  .hero .container {
+    min-height: calc(100svh - 180px);
+    padding: 2.5rem 1rem;
+    transform: translateY(-2.25rem);
+  }
+  .display-text-palatino {
+    gap: 0.55rem;
+    margin-bottom: 1.2rem;
+  }
+  .display-text-palatino span:first-child {
+    font-size: clamp(2.25rem, 13vw, 3.6rem);
+  }
+  .display-text-palatino span:last-child {
+    font-size: clamp(1.18rem, 6.4vw, 1.85rem);
+  }
+  .hero-workshop-text {
+    margin-top: 1.05rem;
+    font-size: clamp(1rem, 5vw, 1.35rem);
+  }
   #navbar {
     display: none;
     background: var(--glass-bg);

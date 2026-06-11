@@ -320,10 +320,10 @@ section {
 
 .hero .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: center !important;
   padding: 16px;
 }
 
@@ -624,6 +624,53 @@ footer {
   background-color: var(--footer-background);
   color: var(--footer-text);
   padding: var(--space-7) 0 var(--space-4);
+}
+
+.footer-sponsors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.footer-sponsors-title {
+  color: var(--footer-muted);
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer-sponsors .sponsor-grid {
+  max-width: 520px;
+  column-gap: clamp(1.75rem, 5vw, 3.75rem);
+  row-gap: 0.95rem;
+  padding: 0;
+}
+
+.footer-sponsors .sponsor-logo {
+  min-height: 34px;
+  opacity: 0.9;
+}
+
+.footer-sponsors .sponsor-logo-zoom .sponsor-logo-img {
+  height: clamp(19px, 2.2vw, 24px);
+}
+
+.footer-sponsors .sponsor-logo-tencent .sponsor-logo-img {
+  height: clamp(20px, 2.35vw, 25px);
+  filter: brightness(1.12) saturate(0.92);
+}
+
+.footer-sponsors .sponsor-logo-img-light {
+  display: none;
+}
+
+.footer-sponsors .sponsor-logo-img-dark {
+  display: block;
 }
 
 .footer-content {
@@ -1202,13 +1249,13 @@ html[data-theme="dark"] .schedule-rail span {
 
 .organizers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
   margin-top: var(--section-header-gap);
-  gap: 2.25rem 1.5rem;
+  gap: 1.65rem 1rem;
 }
 .organizer-card {
   background: transparent;
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 0.55rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1225,18 +1272,18 @@ html[data-theme="dark"] .schedule-rail span {
   text-decoration: none;
 }
 .organizer-photo {
-  width: 80px;
-  height: 80px;
+  width: 74px;
+  height: 74px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.78rem;
   border: 2px solid var(--color-primary);
 }
 .initial-avatar {
-  width: 80px;
-  height: 80px;
+  width: 74px;
+  height: 74px;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.78rem;
   border: 2px solid var(--color-primary);
   display: flex;
   align-items: center;
@@ -1244,7 +1291,7 @@ html[data-theme="dark"] .schedule-rail span {
   background: var(--surface-muted);
   color: var(--color-primary);
   font-family: 'Palatino', 'Palatino Linotype', serif;
-  font-size: 1.5rem;
+  font-size: 1.38rem;
   font-weight: bold;
 }
 .organizer-info {
@@ -1255,11 +1302,11 @@ html[data-theme="dark"] .schedule-rail span {
 }
 .organizer-name {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.02rem;
   color: var(--color-primary);
 }
 .organizer-org {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: var(--color-neutral-700);
   margin-bottom: 0.25rem;
 }
@@ -1294,7 +1341,56 @@ html[data-theme="dark"] .schedule-rail span {
 }
 
 .pc-card {
-  min-height: 178px;
+  min-height: 160px;
+}
+
+@media (min-width: 1180px) {
+  .organizers-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 760px) and (max-width: 1179px) {
+  .organizers-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  .organizers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem 0.7rem;
+  }
+
+  .organizer-card {
+    padding: 0.25rem 0.35rem;
+  }
+
+  .organizer-photo,
+  .initial-avatar {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 0.65rem;
+  }
+
+  .organizer-name {
+    font-size: 0.96rem;
+  }
+
+  .organizer-org {
+    font-size: 0.82rem;
+    line-height: 1.3;
+  }
+
+  .pc-card {
+    min-height: 145px;
+  }
+}
+
+@media (max-width: 380px) {
+  .organizers-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .notice-panel {
@@ -1314,11 +1410,41 @@ html[data-theme="dark"] .schedule-rail span {
 .display-text-palatino {
   font-family: 'Palatino', 'Palatino Linotype', serif;
   font-weight: bold;
-  font-size: 3rem;
   color: var(--text);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
   text-align: center;
   margin: 2rem 0 1rem 0;
+  line-height: 1.08;
+}
+
+.display-text-palatino span:first-child {
+  font-size: clamp(2.45rem, 6vw, 4.75rem);
+}
+
+.display-text-palatino span:last-child {
+  font-size: clamp(1.35rem, 3.15vw, 2.65rem);
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .display-text-palatino {
+  color: #ffffff;
+}
+
+.hero-workshop-text {
+  margin-top: 0.9rem;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(1.08rem, 2vw, 1.55rem);
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-align: center;
+}
+
+html[data-theme="dark"] .hero-workshop-text {
+  color: #ffffff;
 }
 
 .bento-section {
@@ -1736,4 +1862,67 @@ html[data-theme="dark"] .organizer-role {
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
+}
+
+.sponsor-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: clamp(2.25rem, 7vw, 5.75rem);
+  row-gap: 1.25rem;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0.2rem 0 0.3rem;
+}
+
+.sponsor-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  opacity: 0.94;
+}
+
+.sponsor-logo-img {
+  display: block;
+  width: auto;
+  max-width: min(46vw, 260px);
+  object-fit: contain;
+}
+
+.sponsor-logo-zoom .sponsor-logo-img {
+  height: clamp(29px, 3.5vw, 39px);
+}
+
+.sponsor-logo-tencent .sponsor-logo-img {
+  height: clamp(30px, 3.45vw, 40px);
+}
+
+.sponsor-logo-img-dark {
+  display: none;
+}
+
+html[data-theme="dark"] .sponsor-logo-img-light {
+  display: none;
+}
+
+html[data-theme="dark"] .sponsor-logo-img-dark {
+  display: block;
+}
+
+html[data-theme="dark"] .sponsor-logo-tencent .sponsor-logo-img {
+  filter: brightness(1.18) saturate(0.92);
+}
+
+@media (max-width: 640px) {
+  .sponsor-grid {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .sponsor-logo-img {
+    max-width: min(72vw, 260px);
+  }
 }
